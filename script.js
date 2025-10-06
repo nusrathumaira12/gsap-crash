@@ -17,6 +17,13 @@ duration: 0.6,
 
    })
 })
+
+gsap.from("h1",{
+    x: -100,
+     opacity: 0,
+   duration: 0.5,
+   delay: 0.2,
+})
 string.addEventListener("mousemove", function(dets){
     path = `M 200 100 Q ${dets.x} ${dets.y} 990 100`
 
@@ -37,9 +44,9 @@ string.addEventListener("mouseleave",function(){
 
 
 gsap.from(title,{
-     color: "red",
+    
    opacity: 0,
-   duration: 0.5,
+   duration: 0.8,
    delay: 0.8,
    y:-50,
    stagger: -1
