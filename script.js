@@ -1,6 +1,49 @@
 var menu = document.querySelector("#nav i")
-
+var title = document.querySelector("#nav h2")
+var main = document.querySelector("#main");
 var cross = document.querySelector("#full i")
+var cursor = document.querySelector("#cursor")
+var Path = `M 200 100 Q 500 100 990 100`
+
+var finalPath= `M 200 100 Q 500 100 990 100`
+
+var string = document.querySelector("#string")
+main.addEventListener("mousemove",function(dets){
+   gsap.to(cursor,{
+x: dets.x,
+y: dets.y,
+duration: 0.6,
+
+
+   })
+})
+string.addEventListener("mousemove", function(dets){
+    path = `M 200 100 Q ${dets.x} ${dets.y} 990 100`
+
+    gsap.to("svg path",{
+        attr: {d: path},
+        duration: 0.3,
+        ease: "power3.out"
+    })
+   
+})
+string.addEventListener("mouseleave",function(){
+    gsap.to("svg path",{
+        attr: {d: finalPath},
+        duration: 1.5,
+        ease: "elastic.out(1,0.2)"
+    })
+})
+
+
+gsap.from(title,{
+     color: "red",
+   opacity: 0,
+   duration: 0.5,
+   delay: 0.8,
+   y:-50,
+   stagger: -1
+})
 
 var tl = gsap.timeline()
 
