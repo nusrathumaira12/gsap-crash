@@ -1,5 +1,5 @@
 var menu = document.querySelector("#nav i")
-var title = document.querySelector("#nav h2")
+
 var main = document.querySelector("#main");
 var cross = document.querySelector("#full i")
 var cursor = document.querySelector("#cursor")
@@ -8,6 +8,29 @@ var Path = `M 200 100 Q 500 100 990 100`
 var finalPath= `M 200 100 Q 500 100 990 100`
 
 var string = document.querySelector("#string")
+
+function breakTheText(){
+    var title = document.querySelector("#nav h2")
+var titleText = title.textContent
+var splittedText = titleText.split("")
+var clutter = ""
+
+splittedText.forEach(function(elem){
+    clutter += `<span>${elem}</span>`
+})
+title.innerHTML = clutter
+} 
+breakTheText()
+
+gsap.from("#nav h2 span", {
+
+     y: 70,
+    opacity: 0,
+    duration: 0.8,
+    delay: 0.5,
+    stagger: 0.15
+})
+
 main.addEventListener("mousemove",function(dets){
    gsap.to(cursor,{
 x: dets.x,
@@ -43,14 +66,14 @@ string.addEventListener("mouseleave",function(){
 })
 
 
-gsap.from(title,{
+// gsap.from(title,{
     
-   opacity: 0,
-   duration: 0.8,
-   delay: 0.8,
-   y:-50,
-   stagger: -1
-})
+//    opacity: 0,
+//    duration: 0.8,
+//    delay: 0.8,
+//    y:-50,
+//    stagger: -1
+// })
 
 var tl = gsap.timeline()
 

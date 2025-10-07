@@ -46,7 +46,10 @@ color: #fff;
 #nav h2{
     font-size: 30px;
     color: blanchedalmond;
-    display: flex;
+    overflow: hidden;
+}
+#nav h2 span{
+     display: inline-block;
 }
  h1{
     font-size: 30px;
